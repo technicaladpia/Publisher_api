@@ -1,59 +1,54 @@
 # MERCHANT API
 ## Table of contents
-> <sub>✨[1. GET CONVERSIONS API](#menu1)</sub><br />
+> <sub>✨[1. GET MERCHANTS VALID](#menu1)</sub><br />
 > <sub>✨[2. UPDATE CONVERSIONS API](#menu2)</sub>
 <a name="menu1"></a>
 ## 1. GET CONVERSIONS API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
 ```http
-POST /v2/merchant/get_conversions
+GET /v2/merchant/get_merchants_valid
 ```
-```http
-curl -X POST https://api.adpia.vn/v2/merchant/get_conversions
-    -H "Content-Type: application/json"
-    -H "Authorization: Basic $(echo -n username:password | base64)"
-    -d '{"sdate":"20210101", "edate":"20210130", "limit":10, "page":3, "affiliate":"A100041316", "status":"confirm", "ocd":"14678483812"}'
+```bash
+curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
+  -H 'cache-control: no-cache'
+  -H 'content-type: application/json'
 ```
 ### Common Request Parameters
 | Parameter | Type | Required | Description |
 | ------ | ------ | ------ | ------ |
-| `sdate` | String | true | Filter orders that have been updated from this date. Format is yyyymmdd. Example: 20210101. |
-| `edate` | String | true | Filter orders that have been updated to this date. Format is yyyymmdd. Example: 20210130. |
-| `limit` | Int | false | Rows return per request. Default 300 |
-| `page` | Int | false | Page return request. Default 1 |
-| `affiliate` | String | false | Affiliate ID generates results |
-| `status` | String | false | State of orders: pending - approve - confirm - reject - cancel |
-| `ocd` | String | false | Order Code : ID of order |
+| `mid` | String | false | ID of merchant |
+| `adtype` | String | false | Kind of payment methods for promoting products, services or websites on the Internet. CPS - CPO - CPA |
 ### Responses
 ```javascript
 {
     "message": "OK",
     "description": "Success!",
-    "code": 200,
+    "code": "200",
     "data": {
-        "sdate": "20210101",
-        "edate": "20210130",
-        "count": "4267",
-        "limit": "10",
-        "page": "3",
-        "data": [
+        "total": 115,
+        "detail": [
             {
-                "ymd": "20210101",
-                "his": "141012",
-                "conversion_id": "13000008336867",
-                "ocd": "14678483812",
-                "pcd": "31326453",
-                "ccd": "1019",
-                "pname": "COMBO 20 ĐÔI Đũa inox bền đẹp",
-                "sales": "59000",
-                "commission": "79",
-                "cnt": "1",
-                "offer_id": "sendo",
-                "aid": "A100041316",
-                "status": "210",
-                "aff_sub": null,
-                "ip": "172.16.2.144"
+                "mid": "shopee",
+                "site_name": "Shopee.vn",
+                "site_url": "https://shopee.vn/",
+                "site_desc": "Sàn Thương Mại Điện Tử Shopee",
+                "logo": "https://img.adpia.vn/adpia/logo/shopee.png",
+                "adult_flag": "N",
+                "start_date": "20/08/2018",
+                "cate_code": "A",
+                "cate_name": "Mua sắm tổng hợp",
+                "commission": "Up to 8.75%",
+                "type": "CPS",
+                "programs": [
+                    {
+                        "pgm_id": "0000",
+                        "pgm_name": "Chien Dịch CPS - Shopee",
+                        "pgm_start_date": "07/09/2018",
+                        "pgm_com": "Up to 8.75%",
+                        "pgm_desc": "{html_string}"
+                    }
+                ]
             }
         ]
     }
@@ -61,28 +56,29 @@ curl -X POST https://api.adpia.vn/v2/merchant/get_conversions
 ```
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `ymd` | String | Date of order received. Format will be yyyymmdd. |
-| `his` | String | Time of order received. |
-| `conversion_id` | String | Id of single conversion |
-| `ocd` | String | Order code : ID of order | 
-| `pcd` | String | Product code: ID of product |
-| `ccd` | String | Category code: ID of category |
-| `pname` | String | Product name |
-| `sales` | Float64 | The total amount of products. Currency VND |
-| `commission` | Float64 | Commission fee of product. Currency VND |
-| `cnt` | Int | Quantity of product |
-| `offer_id` | String | ID of offer |
-| `aid` | String | Affiliate ID generates order |
-| `status` | String | State of orders: pending - approve - confirm - reject - cancel |
-| `aff_sub` | String | Sub Affiliate ID |
-| `ip` | String | Purchase device ip address |
+| `total` | Int | Total number of valid merchants |
+| `site_name` | String | Merchant's website title |
+| `site_url` | String | Merchant's website homepage link |
+| `site_desc` | String | Merchant's website description | 
+| `logo` | String | Merchant logo image path in adpia |
+| `adult_flag` | String | Yes or no merchant restricts children. Y:Yes - N:No |
+| `start_date` | String | The date merchant officially operates on Adpia |
+| `cate_code` | String | Merchant's category code on Adpia |
+| `cate_name` | String | Merchant's category name on Adpia |
+| `commission` | String | Average commission received from an order when it is confirmed |
+| `type` | String | Kind of payment methods for promoting products, services or websites on the Internet. CPS - CPO - CPA |
+| `programs` | String | Campaigns that merchant is currently implementing |
+| `pgm_id` | String | Merchant's campaign ID |
+| `pgm_name` | String | Merchant's campaign name |
+| `pgm_start_date` | String | Merchant's campaign start date |
+| `pgm_com` | String | Merchant's campaign average commission |
+| `pgm_desc` | String | Merchant's campaign description |
 ### Status Codes
 | Status Code | Description |
 | ------ | ------ |
 | `200` | OK |
 | `400` | Bad request |
-| `401` | Authentication failed |
-| `404` | Missing params |
+| `404` | Merchant not found |
 | `500` | Internal server error |
 
 <a name="menu2"></a>
