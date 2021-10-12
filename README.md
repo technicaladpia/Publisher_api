@@ -101,6 +101,9 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 | `edate` | String | true | Filter orders that have been updated to this date. Format is yyyymmdd. Example: 20210130. |
 | `page` | String | fase | Page return request. Default 1 |
 | `limit` | String | false | Rows return per request. Default 300 |
+| `mid` | String | false | Merchant ID |
+| `status` | String | false |	State of orders: pending - approve - confirm - reject - cancel |
+| `ocd` | String | false | Order Code : ID of order |
 ### Responses
 ```javascript
 {
