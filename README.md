@@ -1,4 +1,4 @@
-# MERCHANT API
+# AFFILIATE API
 ## Table of contents
 > <sub>✨[1. GET MERCHANTS VALID API](#menu1)</sub><br />
 > <sub>✨[2. GET CONVERSIONS API](#menu2)</sub>
