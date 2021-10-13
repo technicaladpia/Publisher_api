@@ -1,7 +1,8 @@
 # AFFILIATE API
 ## Table of contents
 > <sub>✨[1. GET MERCHANTS VALID API](#menu1)</sub><br />
-> <sub>✨[2. GET CONVERSIONS API](#menu2)</sub>
+> <sub>✨[2. GET CONVERSIONS API](#menu2)</sub><br />
+> <sub>✨[3. GET PROMO CODE API](#menu3)</sub>
 <a name="menu1"></a>
 ## 1. GET MERCHANTS VALID API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
@@ -176,4 +177,60 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 | `400` | Bad request |
 | `401` | Authentication failed |
 | `405` | Method Not Allowed |
+| `500` | Internal server error |
+
+<a name="menu3"></a>
+## 3. GET PROMO CODE API
+![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+### Request
+```http
+GET /v2/affiliate/get_promo_code
+```
+```bash
+curl -X GET https://api.adpia.vn/v2/affiliate/get_promo_code?page=1&limit=50&mid=shopee
+  -H "Authorization: Basic $(echo -n username:password | base64)"
+  -H 'cache-control: no-cache'
+  -H 'content-type: application/json'
+```
+### Common Request Parameters
+| Parameter | Type | Required | Description |
+| ------ | ------ | ------ | ------ |
+| `mid` | String | true | ID of merchant |
+| `page` | String | fase | Page return request. Default 1 |
+| `limit` | String | false | Rows return per request. Default 50 |
+### Responses
+```javascript
+{
+    "message": "OK",
+    "description": "Success!",
+    "code": 200,
+    "data": [
+        {
+            "mid": "shopee",
+            "title": "Giảm 300,000đ",
+            "desc": "Giảm ngay ₫30.000 cho đơn hàng từ ₫299.000. Áp dụng đến 13-10-2021. Mỗi tài khoản chỉ được sử dụng một lần duy nhất. Mã giảm giá phát hành bởi Người bán và sẽ không được hoàn lại với bất kỳ lý do nào.",
+            "discount": "300,000đ",
+            "end_date": "13/10/2021",
+            "code": "LATA1030",
+            "url": "https%3A%2F%2Fshopee.vn%2Fsearch%3FpromotionId%3D195232495435776%26signature%3D448ac259e66e95feb00aed2d4d806623056e3b3811a98034507786cc3a44a47d%26voucherCode%3DLATA1030"
+        }
+    ]
+}
+```
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `mid` | String  | Merchant ID |
+| `title` | String | The title of the promo code |
+| `desc` | String | Detailed description of the promotional code |
+| `discount` | String | Price or discount rate | 
+| `end_date` | String | The last day that the promo code is valid |
+| `code` | String | Activation code of promo code. If it is empty, it is a coupon. |
+| `url` | String | Link to merchant's promotion page |
+### Status Codes
+| Status Code | Description |
+| ------ | ------ |
+| `200` | OK |
+| `400` | Bad request |
+| `401` | Authentication failed |
+| `404` | Missing param |
 | `500` | Internal server error |
