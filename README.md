@@ -100,8 +100,8 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 | ------ | ------ | ------ | ------ |
 | `sdate` | String | true | Filter orders that have been updated from this date. Format is yyyymmdd. Example: 20210101. |
 | `edate` | String | true | Filter orders that have been updated to this date. Format is yyyymmdd. Example: 20210130. |
-| `page` | String | fase | Page return request. Default 1 |
-| `limit` | String | false | Rows return per request. Default 300 |
+| `page` | Int | fase | Page return request. Default 1 |
+| `limit` | Int | false | Rows return per request. Default 300 |
 | `mid` | String | false | Merchant ID |
 | `status` | String | false |	State of orders: pending - approve - confirm - reject - cancel |
 | `ocd` | String | false | Order Code : ID of order |
@@ -196,8 +196,8 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_promo_code?page=1&limit=50&mid
 | Parameter | Type | Required | Description |
 | ------ | ------ | ------ | ------ |
 | `mid` | String | true | ID of merchant |
-| `page` | String | fase | Page return request. Default 1 |
-| `limit` | String | false | Rows return per request. Default 50 |
+| `page` | Int | fase | Page return request. Default 1 |
+| `limit` | Int | false | Rows return per request. Default 50 |
 ### Responses
 ```javascript
 {
