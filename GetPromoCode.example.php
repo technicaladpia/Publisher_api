@@ -13,7 +13,7 @@
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "GET",
           CURLOPT_HTTPHEADER => array(
-            "authorization: Basic bG1xdWFuZzk2Om5zMjAwNDE5OTY=",
+            "authorization: Basic ".base64_encode('username:password'),
             "cache-control: no-cache",
             "content-type: application/json"
           ),
