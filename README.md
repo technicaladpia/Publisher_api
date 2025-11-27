@@ -87,7 +87,7 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
 ```http
-POST /v2/affiliate/get_conversions
+GET /v2/affiliate/get_conversions
 ```
 ```bash
 curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&edate=20210130&page=1&limit=50
