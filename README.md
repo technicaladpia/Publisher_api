@@ -105,6 +105,8 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 | `mid` | String | false | Merchant ID |
 | `status` | String | false |	State of orders: pending - approve - confirm - reject - cancel |
 | `ocd` | String | false | Order Code : ID of order |
+| `pcd` | String | false | Product Code : ID of product |
+| `group` | Int | false | Filter reports by account group |
 ### Responses
 ```javascript
 {
