@@ -83,7 +83,7 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
 | `404` | Merchant not found |
 | `500` | Internal server error |
 
-<a name="menu2></a>
+<a name="menu2"></a>
 ## 2. GET MERCHANT PROGRAM DESCRIPTION API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
