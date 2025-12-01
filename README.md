@@ -1,8 +1,9 @@
 # AFFILIATE API
 ## Table of contents
 > <sub>✨[1. GET MERCHANTS VALID API](#menu1)</sub><br />
-> <sub>✨[2. GET CONVERSIONS API](#menu2)</sub><br />
-> <sub>✨[3. GET PROMO CODE API](#menu3)</sub>
+> <sub>✨[2. GET MERCHANT PROGRAM DESCRIPTION API](#menu2)</sub><br />
+> <sub>✨[3. GET CONVERSIONS API](#menu3)</sub><br />
+> <sub>✨[4. GET PROMO CODE API](#menu4)</sub>
 <a name="menu1"></a>
 ## 1. GET MERCHANTS VALID API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
@@ -82,8 +83,16 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
 | `404` | Merchant not found |
 | `500` | Internal server error |
 
-<a name="menu2"></a>
-## 2. GET CONVERSIONS API
+<a name="menu2></a>
+## 2. GET MERCHANT PROGRAM DESCRIPTION API
+![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
+### Request
+```http
+GET /v2/merchant/get_merchants_valid
+```
+
+<a name="menu3"></a>
+## 3. GET CONVERSIONS API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
 ```http
@@ -181,8 +190,8 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 | `405` | Method Not Allowed |
 | `500` | Internal server error |
 
-<a name="menu3"></a>
-## 3. GET PROMO CODE API
+<a name="menu4"></a>
+## 4. GET PROMO CODE API
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
 ```http
