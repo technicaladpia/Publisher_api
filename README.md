@@ -88,8 +88,33 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 ### Request
 ```http
-GET /v2/merchant/get_merchants_valid
+GET /v2/merchant/get_merchant_program_description
 ```
+```bash
+curl -X GET https://api.adpia.vn/v2/merchant/get_merchant_program_description?mid=shopee
+  -H 'cache-control: no-cache'
+  -H 'content-type: application/json'
+```
+### Common Request Parameters
+| Parameter | Type | Required | Description |
+| ------ | ------ | ------ | ------ |
+| `mid` | String | false | ID of merchant |
+### Responses
+```javascript
+{
+    "message": "OK",
+    "description": "Success!",
+    "code": "200",
+    "data": "<p><span style=\"font-size:14px\">...</span></p>\r\n"
+}
+```
+### Status Codes
+| Status Code | Description |
+| ------ | ------ |
+| `200` | OK |
+| `400` | Bad request |
+| `404` | Missing param |
+| `500` | Internal server error |
 
 <a name="menu3"></a>
 ## 3. GET CONVERSIONS API
