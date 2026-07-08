@@ -12,7 +12,7 @@
 GET /v2/merchant/get_merchants_valid
 ```
 ```bash
-curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
+curl -X GET https://newapi.adpia.vn/v2/merchant/get_merchants_valid
   -H 'cache-control: no-cache'
   -H 'content-type: application/json'
 ```
@@ -91,7 +91,7 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchants_valid
 GET /v2/merchant/get_merchant_program_description
 ```
 ```bash
-curl -X GET https://api.adpia.vn/v2/merchant/get_merchant_program_description?mid=shopee
+curl -X GET https://newapi.adpia.vn/v2/merchant/get_merchant_program_description?mid=shopee
   -H 'cache-control: no-cache'
   -H 'content-type: application/json'
 ```
@@ -124,7 +124,7 @@ curl -X GET https://api.adpia.vn/v2/merchant/get_merchant_program_description?mi
 GET /v2/affiliate/get_conversions
 ```
 ```bash
-curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&edate=20210130&page=1&limit=50
+curl -X GET https://newapi.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&edate=20210130&page=1&limit=50
     -H "Content-Type: application/json"
     -H "Authorization: Basic $(echo -n username:password | base64)"
     -H "Cache-Control: no-cache"
@@ -223,7 +223,7 @@ curl -X GET https://api.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&eda
 GET /v2/affiliate/get_promo_code
 ```
 ```bash
-curl -X GET https://api.adpia.vn/v2/affiliate/get_promo_code?page=1&limit=50&mid=shopee
+curl -X GET https://newapi.adpia.vn/v2/affiliate/get_promo_code?page=1&limit=50&mid=shopee
   -H "Authorization: Basic $(echo -n username:password | base64)"
   -H 'cache-control: no-cache'
   -H 'content-type: application/json'
