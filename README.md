@@ -176,7 +176,11 @@ curl -X GET https://newapi.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&
                 "status": "confirm",
                 "aff_sub": null,
                 "ip": "172.16.2.144",
-                "type": "CPS"
+                "type": "CPS",
+                "shop_id": "366976836",
+                "shop_name": "H-Zet Official Store",
+                "update_at": "2021-01-20 09:55:17",
+                "complete_time": "2021-01-20 09:55:17"
             }
         ]
     }
@@ -206,6 +210,10 @@ curl -X GET https://newapi.adpia.vn/v2/affiliate/get_conversions?sdate=20210101&
 | `aff_sub` | String | Sub Affiliate ID |
 | `ip` | String | Purchase device ip address |
 | `type` | String | Kind of payment methods for promoting products, services or websites on the Internet. CPS - CPO - CPA |
+| `shop_id` | String | Shop ID |
+| `shop_name` | String | Shop name |
+| `update_at` | String | Update time |
+| `complete_time` | String | Order approval time |
 ### Status Codes
 | Status Code | Description |
 | ------ | ------ |
